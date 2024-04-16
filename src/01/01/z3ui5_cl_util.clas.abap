@@ -14,7 +14,7 @@ CLASS z3ui5_cl_util DEFINITION
     CLASS-METHODS app_get_url
       IMPORTING
         !client          TYPE REF TO z3ui5_if_client
-        VALUE(classname) TYPE string OPTIONAL
+        VALUE(classname) TYPE clike OPTIONAL
       RETURNING
         VALUE(result)    TYPE string.
 
