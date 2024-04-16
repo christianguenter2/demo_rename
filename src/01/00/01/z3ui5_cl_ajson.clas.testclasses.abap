@@ -1072,31 +1072,31 @@ CLASS ltcl_reader_test IMPLEMENTATION.
 
     cl_abap_unit_assert=>assert_equals(
       act = li_cut->get_node_type( '/' )
-      exp = z2ui5_if_ajson_types=>node_type-object ).
+      exp = z3ui5_if_ajson_types=>node_type-object ).
     cl_abap_unit_assert=>assert_equals(
       act = li_cut->get_node_type( '/string' )
-      exp = z2ui5_if_ajson_types=>node_type-string ).
+      exp = z3ui5_if_ajson_types=>node_type-string ).
     cl_abap_unit_assert=>assert_equals(
       act = li_cut->get_node_type( '/number' )
-      exp = z2ui5_if_ajson_types=>node_type-number ).
+      exp = z3ui5_if_ajson_types=>node_type-number ).
     cl_abap_unit_assert=>assert_equals(
       act = li_cut->get_node_type( '/float' )
-      exp = z2ui5_if_ajson_types=>node_type-number ).
+      exp = z3ui5_if_ajson_types=>node_type-number ).
     cl_abap_unit_assert=>assert_equals(
       act = li_cut->get_node_type( '/boolean' )
-      exp = z2ui5_if_ajson_types=>node_type-boolean ).
+      exp = z3ui5_if_ajson_types=>node_type-boolean ).
     cl_abap_unit_assert=>assert_equals(
       act = li_cut->get_node_type( '/false' )
-      exp = z2ui5_if_ajson_types=>node_type-boolean ).
+      exp = z3ui5_if_ajson_types=>node_type-boolean ).
     cl_abap_unit_assert=>assert_equals(
       act = li_cut->get_node_type( '/null' )
-      exp = z2ui5_if_ajson_types=>node_type-null ).
+      exp = z3ui5_if_ajson_types=>node_type-null ).
     cl_abap_unit_assert=>assert_equals(
       act = li_cut->get_node_type( '/date' )
-      exp = z2ui5_if_ajson_types=>node_type-string ).
+      exp = z3ui5_if_ajson_types=>node_type-string ).
     cl_abap_unit_assert=>assert_equals(
       act = li_cut->get_node_type( '/issues' )
-      exp = z2ui5_if_ajson_types=>node_type-array ).
+      exp = z3ui5_if_ajson_types=>node_type-array ).
 
   ENDMETHOD.
 
@@ -1115,7 +1115,7 @@ CLASS ltcl_reader_test IMPLEMENTATION.
     lo_cut->mt_json_tree = lo_nodes->mt_nodes.
 
     cl_abap_unit_assert=>assert_equals(
-      act = lo_cut->z2ui5_if_ajson~get_date( '/date1' )
+      act = lo_cut->z3ui5_if_ajson~get_date( '/date1' )
       exp = lv_exp ).
 
     CREATE OBJECT lo_nodes.
@@ -1124,7 +1124,7 @@ CLASS ltcl_reader_test IMPLEMENTATION.
     lo_cut->mt_json_tree = lo_nodes->mt_nodes.
 
     cl_abap_unit_assert=>assert_equals(
-      act = lo_cut->z2ui5_if_ajson~get_date( '/date1' )
+      act = lo_cut->z3ui5_if_ajson~get_date( '/date1' )
       exp = lv_exp ).
 
     CREATE OBJECT lo_nodes.
@@ -1133,7 +1133,7 @@ CLASS ltcl_reader_test IMPLEMENTATION.
     lo_cut->mt_json_tree = lo_nodes->mt_nodes.
 
     cl_abap_unit_assert=>assert_equals(
-      act = lo_cut->z2ui5_if_ajson~get_date( '/date1' )
+      act = lo_cut->z3ui5_if_ajson~get_date( '/date1' )
       exp = '' ).
 
   ENDMETHOD.
@@ -1152,7 +1152,7 @@ CLASS ltcl_reader_test IMPLEMENTATION.
     lo_cut->mt_json_tree = lo_nodes->mt_nodes.
 
     cl_abap_unit_assert=>assert_equals(
-      act = lo_cut->z2ui5_if_ajson~get_timestamp( '/timestamp' )
+      act = lo_cut->z3ui5_if_ajson~get_timestamp( '/timestamp' )
       exp = lv_exp ).
 
   ENDMETHOD.
@@ -3313,47 +3313,47 @@ CLASS ltcl_writer_test IMPLEMENTATION.
   METHOD setx.
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>new( )->setx( '/a:1' )->stringify( )
+      act = z3ui5_cl_ajson=>new( )->setx( '/a:1' )->stringify( )
       exp = '{"a":1}' ).
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>new( )->setx( '/a : 1' )->stringify( )
+      act = z3ui5_cl_ajson=>new( )->setx( '/a : 1' )->stringify( )
       exp = '{"a":1}' ).
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>new( )->setx( '/a:"1"' )->stringify( )
+      act = z3ui5_cl_ajson=>new( )->setx( '/a:"1"' )->stringify( )
       exp = '{"a":"1"}' ).
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>new( )->setx( '/a:abc' )->stringify( )
+      act = z3ui5_cl_ajson=>new( )->setx( '/a:abc' )->stringify( )
       exp = '{"a":"abc"}' ).
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>new( )->setx( '/a:null' )->stringify( )
+      act = z3ui5_cl_ajson=>new( )->setx( '/a:null' )->stringify( )
       exp = '{"a":null}' ).
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>new( )->setx( '/a:true' )->stringify( )
+      act = z3ui5_cl_ajson=>new( )->setx( '/a:true' )->stringify( )
       exp = '{"a":true}' ).
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>new( )->setx( '/a:"true"' )->stringify( )
+      act = z3ui5_cl_ajson=>new( )->setx( '/a:"true"' )->stringify( )
       exp = '{"a":"true"}' ).
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>new( )->setx( '/a:false' )->stringify( )
+      act = z3ui5_cl_ajson=>new( )->setx( '/a:false' )->stringify( )
       exp = '{"a":false}' ).
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>new( )->setx( '/a/b:1' )->stringify( )
+      act = z3ui5_cl_ajson=>new( )->setx( '/a/b:1' )->stringify( )
       exp = '{"a":{"b":1}}' ).
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>new( )->setx( '/:1' )->stringify( )
+      act = z3ui5_cl_ajson=>new( )->setx( '/:1' )->stringify( )
       exp = '1' ). " Because set( path = '/' ) would write root node
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>new( )->setx( ':1' )->stringify( )
+      act = z3ui5_cl_ajson=>new( )->setx( ':1' )->stringify( )
       exp = '1' ). " Because set( path = '' ) would write root node
 
 *    cl_abap_unit_assert=>assert_equals(
@@ -3365,7 +3365,7 @@ CLASS ltcl_writer_test IMPLEMENTATION.
 *      exp = '{}' ). " should setx ignore empty values or set an empty string ? Or null ?
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>new( )->setx( '/a:""' )->stringify( )
+      act = z3ui5_cl_ajson=>new( )->setx( '/a:""' )->stringify( )
       exp = '{"a":""}' ).
 
   ENDMETHOD.
@@ -3373,23 +3373,23 @@ CLASS ltcl_writer_test IMPLEMENTATION.
   METHOD setx_float.
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>new( )->setx( '/a:1.123' )->stringify( )
+      act = z3ui5_cl_ajson=>new( )->setx( '/a:1.123' )->stringify( )
       exp = '{"a":1.123}' ).
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>new( )->setx( '/a:00.123' )->stringify( )
+      act = z3ui5_cl_ajson=>new( )->setx( '/a:00.123' )->stringify( )
       exp = '{"a":"00.123"}' ). " not a number
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>new( )->setx( '/a:.123' )->stringify( )
+      act = z3ui5_cl_ajson=>new( )->setx( '/a:.123' )->stringify( )
       exp = '{"a":".123"}' ).
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>new( )->setx( '/a:123.' )->stringify( )
+      act = z3ui5_cl_ajson=>new( )->setx( '/a:123.' )->stringify( )
       exp = '{"a":"123."}' ).
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>new( )->setx( '/a:1..123' )->stringify( )
+      act = z3ui5_cl_ajson=>new( )->setx( '/a:1..123' )->stringify( )
       exp = '{"a":"1..123"}' ).
 
   ENDMETHOD.
@@ -3397,19 +3397,19 @@ CLASS ltcl_writer_test IMPLEMENTATION.
   METHOD setx_complex.
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>new( )->setx( '/a:{"b" : 1}' )->stringify( )
+      act = z3ui5_cl_ajson=>new( )->setx( '/a:{"b" : 1}' )->stringify( )
       exp = '{"a":{"b":1}}' ).
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>new( )->setx( '/a:{}' )->stringify( )
+      act = z3ui5_cl_ajson=>new( )->setx( '/a:{}' )->stringify( )
       exp = '{"a":{}}' ).
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>new( )->setx( '/a:[1, 2]' )->stringify( )
+      act = z3ui5_cl_ajson=>new( )->setx( '/a:[1, 2]' )->stringify( )
       exp = '{"a":[1,2]}' ).
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>new( )->setx( '/a:[]' )->stringify( )
+      act = z3ui5_cl_ajson=>new( )->setx( '/a:[]' )->stringify( )
       exp = '{"a":[]}' ).
 
     TRY.

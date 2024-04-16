@@ -514,31 +514,31 @@ class ltcl_json_utils implementation.
   method is_equal.
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson_utilities=>new( )->is_equal(
-        ii_json_a = z2ui5_cl_ajson=>parse( '{"a":1,"b":2}' )
-        ii_json_b = z2ui5_cl_ajson=>parse( '{"a":1,"b":2}' ) )
+      act = z3ui5_cl_ajson_utilities=>new( )->is_equal(
+        ii_json_a = z3ui5_cl_ajson=>parse( '{"a":1,"b":2}' )
+        ii_json_b = z3ui5_cl_ajson=>parse( '{"a":1,"b":2}' ) )
       exp = abap_true ).
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson_utilities=>new( )->is_equal(
+      act = z3ui5_cl_ajson_utilities=>new( )->is_equal(
         iv_json_a = '{"a":1,"b":2}'
         iv_json_b = '{"a":1,"b":2}' )
       exp = abap_true ).
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson_utilities=>new( )->is_equal(
+      act = z3ui5_cl_ajson_utilities=>new( )->is_equal(
         iv_json_a = '{"a":1,"b":2}'
         iv_json_b = '{"a":1,"b":3}' )
       exp = abap_false ).
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson_utilities=>new( )->is_equal(
+      act = z3ui5_cl_ajson_utilities=>new( )->is_equal(
         iv_json_a = '{"a":1,"b":2}'
         iv_json_b = '{"a":1,"b":2,"c":3}' )
       exp = abap_false ).
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson_utilities=>new( )->is_equal(
+      act = z3ui5_cl_ajson_utilities=>new( )->is_equal(
         iv_json_a = '{"a":1,"b":2,"c":3}'
         iv_json_b = '{"a":1,"b":2}' )
       exp = abap_false ).

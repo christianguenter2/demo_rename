@@ -84,13 +84,13 @@ CLASS z3ui5_cl_core_json_srv IMPLEMENTATION.
   METHOD model_back_to_front.
     TRY.
 
-        DATA(ajson_result) = CAST z2ui5_if_ajson( z3ui5_cl_ajson=>create_empty( ) ).
+        DATA(ajson_result) = CAST z3ui5_if_ajson( z3ui5_cl_ajson=>create_empty( ) ).
         LOOP AT t_attri->* REFERENCE INTO DATA(lr_attri) WHERE bind_type <> ``.
 
           IF lr_attri->custom_mapper IS BOUND.
-            DATA(ajson) = CAST z2ui5_if_ajson( z3ui5_cl_ajson=>create_empty( ii_custom_mapping = lr_attri->custom_mapper ) ).
+            DATA(ajson) = CAST z3ui5_if_ajson( z3ui5_cl_ajson=>create_empty( ii_custom_mapping = lr_attri->custom_mapper ) ).
           ELSE.
-            ajson = CAST z2ui5_if_ajson( z3ui5_cl_ajson=>create_empty( ii_custom_mapping = z3ui5_cl_ajson_mapping=>create_upper_case( ) ) ).
+            ajson = CAST z3ui5_if_ajson( z3ui5_cl_ajson=>create_empty( ii_custom_mapping = z3ui5_cl_ajson_mapping=>create_upper_case( ) ) ).
           ENDIF.
 
           CASE lr_attri->bind_type.
@@ -127,7 +127,7 @@ CLASS z3ui5_cl_core_json_srv IMPLEMENTATION.
   METHOD request_json_to_abap.
     TRY.
 
-        DATA(lo_ajson) = CAST z2ui5_if_ajson( z3ui5_cl_ajson=>parse( val ) ).
+        DATA(lo_ajson) = CAST z3ui5_if_ajson( z3ui5_cl_ajson=>parse( val ) ).
 
         DATA(lv_model_edit_name) = `/` && z3ui5_if_core_types=>cs_ui5-two_way_model.
 
@@ -179,11 +179,11 @@ CLASS z3ui5_cl_core_json_srv IMPLEMENTATION.
   METHOD response_abap_to_json.
     TRY.
 
-        DATA(ajson_result) = CAST z2ui5_if_ajson( z3ui5_cl_ajson=>create_empty(
+        DATA(ajson_result) = CAST z3ui5_if_ajson( z3ui5_cl_ajson=>create_empty(
           ii_custom_mapping = z3ui5_cl_ajson_mapping=>create_upper_case( ) ) ).
 
         ajson_result->set( iv_path = `/` iv_val = val-s_front ).
-        ajson_result = ajson_result->filter( NEW z2ui5_cl_core_json_srv( ) ).
+        ajson_result = ajson_result->filter( NEW z3ui5_cl_core_json_srv( ) ).
         DATA(lv_frontend) = ajson_result->stringify( ).
 
         result = `{` &&

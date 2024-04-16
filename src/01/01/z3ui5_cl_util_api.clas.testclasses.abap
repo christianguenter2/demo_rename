@@ -263,20 +263,20 @@ CLASS ltcl_unit_test IMPLEMENTATION.
 
     DATA(lv_bool) = xsdbool( 1 = 1 ).
     cl_abap_unit_assert=>assert_equals(
-        act = z2ui5_cl_util=>boolean_check_by_data( lv_bool )
+        act = z3ui5_cl_util=>boolean_check_by_data( lv_bool )
         exp = abap_true ).
 
     lv_bool = xsdbool( 1 = 2 ).
     cl_abap_unit_assert=>assert_equals(
-        act = z2ui5_cl_util=>boolean_check_by_data( lv_bool )
+        act = z3ui5_cl_util=>boolean_check_by_data( lv_bool )
         exp = abap_true ).
 
     cl_abap_unit_assert=>assert_equals(
-        act = z2ui5_cl_util=>boolean_check_by_data( abap_true )
+        act = z3ui5_cl_util=>boolean_check_by_data( abap_true )
         exp = abap_true ).
 
     cl_abap_unit_assert=>assert_equals(
-        act = z2ui5_cl_util=>boolean_check_by_data( abap_false )
+        act = z3ui5_cl_util=>boolean_check_by_data( abap_false )
         exp = abap_true ).
 
   ENDMETHOD.
@@ -313,11 +313,11 @@ CLASS ltcl_unit_test IMPLEMENTATION.
     DATA(lv_test) = `test`.
     DATA(lr_test) = REF #( lv_test ).
 
-    cl_abap_unit_assert=>assert_true( z2ui5_cl_util_api=>check_bound_a_not_inital( lr_test ) ).
+    cl_abap_unit_assert=>assert_true( z3ui5_cl_util_api=>check_bound_a_not_inital( lr_test ) ).
     CLEAR lv_test.
-    cl_abap_unit_assert=>assert_false( z2ui5_cl_util_api=>check_bound_a_not_inital( lr_test ) ).
+    cl_abap_unit_assert=>assert_false( z3ui5_cl_util_api=>check_bound_a_not_inital( lr_test ) ).
     CLEAR lr_test.
-    cl_abap_unit_assert=>assert_false( z2ui5_cl_util_api=>check_bound_a_not_inital( lr_test ) ).
+    cl_abap_unit_assert=>assert_false( z3ui5_cl_util_api=>check_bound_a_not_inital( lr_test ) ).
 
   ENDMETHOD.
 
@@ -326,10 +326,10 @@ CLASS ltcl_unit_test IMPLEMENTATION.
     DATA(lv_test) = `test`.
     DATA(lr_test) = REF #( lv_test ).
 
-    cl_abap_unit_assert=>assert_false( z2ui5_cl_util_api=>check_unassign_inital( lr_test ) ).
+    cl_abap_unit_assert=>assert_false( z3ui5_cl_util_api=>check_unassign_inital( lr_test ) ).
 
     CLEAR lv_test.
-    cl_abap_unit_assert=>assert_true( z2ui5_cl_util_api=>check_unassign_inital( lr_test ) ).
+    cl_abap_unit_assert=>assert_true( z3ui5_cl_util_api=>check_unassign_inital( lr_test ) ).
 
   ENDMETHOD.
 
@@ -340,11 +340,11 @@ CLASS ltcl_unit_test IMPLEMENTATION.
     GET REFERENCE OF lv_test INTO lr_data.
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_util_api=>rtti_check_ref_data( lr_data )
+      act = z3ui5_cl_util_api=>rtti_check_ref_data( lr_data )
       exp = abap_true ).
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_util_api=>rtti_check_ref_data( lv_test )
+      act = z3ui5_cl_util_api=>rtti_check_ref_data( lv_test )
       exp = abap_false ).
 
   ENDMETHOD.
@@ -369,7 +369,7 @@ CLASS ltcl_unit_test IMPLEMENTATION.
   METHOD test_boolean_abap_2_json.
 
     cl_abap_unit_assert=>assert_equals(
-       act = z2ui5_cl_util=>boolean_abap_2_json( `{ABCD}` )
+       act = z3ui5_cl_util=>boolean_abap_2_json( `{ABCD}` )
        exp = `{ABCD}` ).
 
   ENDMETHOD.
@@ -410,7 +410,7 @@ CLASS ltcl_unit_test IMPLEMENTATION.
   METHOD test_c_trim.
 
     cl_abap_unit_assert=>assert_equals(
-        act = z2ui5_cl_util=>c_trim( ` JsadfHHs  ` )
+        act = z3ui5_cl_util=>c_trim( ` JsadfHHs  ` )
         exp = `JsadfHHs` ).
 
   ENDMETHOD.
@@ -418,7 +418,7 @@ CLASS ltcl_unit_test IMPLEMENTATION.
   METHOD test_c_trim_lower.
 
     cl_abap_unit_assert=>assert_equals(
-        act = z2ui5_cl_util=>c_trim_lower( ` JsadfHHs  ` )
+        act = z3ui5_cl_util=>c_trim_lower( ` JsadfHHs  ` )
         exp = `jsadfhhs` ).
 
   ENDMETHOD.
@@ -426,7 +426,7 @@ CLASS ltcl_unit_test IMPLEMENTATION.
   METHOD test_c_trim_upper.
 
     cl_abap_unit_assert=>assert_equals(
-        act = z2ui5_cl_util=>c_trim_upper( ` JsadfHHs  ` )
+        act = z3ui5_cl_util=>c_trim_upper( ` JsadfHHs  ` )
         exp = `JSADFHHS` ).
 
   ENDMETHOD.
@@ -435,9 +435,9 @@ CLASS ltcl_unit_test IMPLEMENTATION.
 
     cl_abap_unit_assert=>assert_equals(
       act = sy-uname
-      exp = z2ui5_cl_util=>user_get_tech( ) ).
+      exp = z3ui5_cl_util=>user_get_tech( ) ).
 
-    cl_abap_unit_assert=>assert_not_initial( z2ui5_cl_util=>user_get_tech( ) ).
+    cl_abap_unit_assert=>assert_not_initial( z3ui5_cl_util=>user_get_tech( ) ).
 
   ENDMETHOD.
 
@@ -480,7 +480,7 @@ CLASS ltcl_unit_test IMPLEMENTATION.
     DATA(ls_row) = VALUE ty_row( title = `test` ).
 
     cl_abap_unit_assert=>assert_equals(
-        act = z2ui5_cl_util=>json_stringify( ls_row )
+        act = z3ui5_cl_util=>json_stringify( ls_row )
         exp = `{"selected":false,"title":"test","value":""}` ).
 
   ENDMETHOD.
@@ -579,13 +579,13 @@ CLASS ltcl_unit_test IMPLEMENTATION.
     DATA(lv_string) = VALUE string( ).
     DATA lr_string TYPE REF TO string.
     cl_abap_unit_assert=>assert_equals(
-        act = z2ui5_cl_util=>rtti_check_type_kind_dref( lv_string )
+        act = z3ui5_cl_util=>rtti_check_type_kind_dref( lv_string )
         exp = abap_false ).
 
 
     CREATE DATA lr_string.
     cl_abap_unit_assert=>assert_equals(
-        act = z2ui5_cl_util=>rtti_check_type_kind_dref( lr_string )
+        act = z3ui5_cl_util=>rtti_check_type_kind_dref( lr_string )
         exp = abap_true ).
 
   ENDMETHOD.

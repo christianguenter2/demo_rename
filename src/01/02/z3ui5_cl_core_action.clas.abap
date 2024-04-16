@@ -93,7 +93,7 @@ CLASS z3ui5_cl_core_action IMPLEMENTATION.
 
         CREATE OBJECT result->mo_app->mo_app TYPE (mo_http_post->ms_request-s_control-app_start).
 
-        DATA(li_app) = CAST z2ui5_if_app( result->mo_app->mo_app ).
+        DATA(li_app) = CAST z3ui5_if_app( result->mo_app->mo_app ).
         li_app->id_draft = result->mo_app->ms_draft-id.
 
         result->ms_actual-check_on_navigated = abap_true.
@@ -159,7 +159,7 @@ CLASS z3ui5_cl_core_action IMPLEMENTATION.
     result->ms_actual-check_on_navigated = abap_true.
     result->mo_app->mo_app               = z3ui5_cl_core_app_startup=>factory( ).
 
-    DATA(li_app) = CAST z2ui5_if_app( result->mo_app->mo_app ).
+    DATA(li_app) = CAST z3ui5_if_app( result->mo_app->mo_app ).
     li_app->id_draft = result->mo_app->ms_draft-id.
 
   ENDMETHOD.

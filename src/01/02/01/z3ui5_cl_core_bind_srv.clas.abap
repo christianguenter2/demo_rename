@@ -258,7 +258,7 @@ CLASS z3ui5_cl_core_bind_srv IMPLEMENTATION.
   METHOD main_local.
     TRY.
 
-        DATA(lo_json) = CAST z2ui5_if_ajson( z3ui5_cl_ajson=>new( ) ).
+        DATA(lo_json) = CAST z3ui5_if_ajson( z3ui5_cl_ajson=>new( ) ).
         lo_json->set( iv_path = `/` iv_val = val ).
 
         IF config-custom_mapper IS BOUND.

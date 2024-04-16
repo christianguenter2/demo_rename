@@ -824,7 +824,7 @@ CLASS z3ui5_cl_popup_layout IMPLEMENTATION.
     IF client->get( )-check_on_navigated = abap_true.
 
       TRY.
-          DATA(app) = CAST z2ui5_cl_popup_layout( client->get_app( client->get( )-s_draft-id_prev_app ) ).
+          DATA(app) = CAST z3ui5_cl_popup_layout( client->get_app( client->get( )-s_draft-id_prev_app ) ).
           DATA(ls_result) = app->result( ).
           IF ls_result-check_cancel = abap_true.
             RETURN.

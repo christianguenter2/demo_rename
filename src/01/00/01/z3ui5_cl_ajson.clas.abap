@@ -727,7 +727,7 @@ CLASS z3ui5_cl_ajson IMPLEMENTATION.
         iv_val  = lv_int ).
     elseif lv_val co '0123456789.' and go_float_regex->create_matcher( text = lv_val )->match( ) = abap_true.
       lv_dec = lv_val.
-      z2ui5_if_ajson~set(
+      z3ui5_if_ajson~set(
         iv_path = lv_path
         iv_val  = lv_dec ).
     elseif lv_val+0(1) = '{' or lv_val+0(1) = '['.
@@ -950,7 +950,7 @@ CLASS z3ui5_cl_ajson IMPLEMENTATION.
 
     lo_to_abap->to_abap(
       exporting
-        it_nodes    = z2ui5_if_ajson~mt_json_tree
+        it_nodes    = z3ui5_if_ajson~mt_json_tree
       changing
         c_container = ev_container ).
 

@@ -335,7 +335,7 @@ CLASS z3ui5_cl_popup_get_range_multi IMPLEMENTATION.
 
     IF client->get( )-check_on_navigated = abap_true.
 
-      DATA(lo_popup) = CAST z2ui5_cl_popup_get_range( client->get_app( client->get( )-s_draft-id_prev_app ) ).
+      DATA(lo_popup) = CAST z3ui5_cl_popup_get_range( client->get_app( client->get( )-s_draft-id_prev_app ) ).
       IF lo_popup->result( )-check_confirmed = abap_true.
         ASSIGN ms_result-t_sql[ name = mv_popup_name ] TO FIELD-SYMBOL(<tab>).
         <tab>-t_range = lo_popup->result( )-t_range.

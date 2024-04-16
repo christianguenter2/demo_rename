@@ -184,14 +184,14 @@ class ltcl_test_mappers implementation.
   method test_to_upper.
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>create_from(
-        ii_source_json = z2ui5_cl_ajson=>parse( '{"a":1,"b":{"c":2}}' )
-        ii_mapper      = z2ui5_cl_ajson_mapping=>create_upper_case( ) )->stringify( )
+      act = z3ui5_cl_ajson=>create_from(
+        ii_source_json = z3ui5_cl_ajson=>parse( '{"a":1,"b":{"c":2}}' )
+        ii_mapper      = z3ui5_cl_ajson_mapping=>create_upper_case( ) )->stringify( )
       exp = '{"A":1,"B":{"C":2}}' ).
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>parse( '{"a":1,"b":{"c":2}}'
-        )->map( z2ui5_cl_ajson_mapping=>create_upper_case( )
+      act = z3ui5_cl_ajson=>parse( '{"a":1,"b":{"c":2}}'
+        )->map( z3ui5_cl_ajson_mapping=>create_upper_case( )
         )->stringify( )
       exp = '{"A":1,"B":{"C":2}}' ).
 
@@ -200,14 +200,14 @@ class ltcl_test_mappers implementation.
   method test_to_lower.
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>create_from(
-        ii_source_json = z2ui5_cl_ajson=>parse( '{"A":1,"B":{"C":2}}' )
-        ii_mapper      = z2ui5_cl_ajson_mapping=>create_lower_case( ) )->stringify( )
+      act = z3ui5_cl_ajson=>create_from(
+        ii_source_json = z3ui5_cl_ajson=>parse( '{"A":1,"B":{"C":2}}' )
+        ii_mapper      = z3ui5_cl_ajson_mapping=>create_lower_case( ) )->stringify( )
       exp = '{"a":1,"b":{"c":2}}' ).
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>parse( '{"A":1,"B":{"C":2}}'
-        )->map( z2ui5_cl_ajson_mapping=>create_lower_case( )
+      act = z3ui5_cl_ajson=>parse( '{"A":1,"B":{"C":2}}'
+        )->map( z3ui5_cl_ajson_mapping=>create_lower_case( )
         )->stringify( )
       exp = '{"a":1,"b":{"c":2}}' ).
 
@@ -229,9 +229,9 @@ class ltcl_test_mappers implementation.
     <i>-to   = 'z'.
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>create_from(
-        ii_source_json = z2ui5_cl_ajson=>parse( '{"a":1,"b":{"c":2},"d":{"e":3}}' )
-        ii_mapper      = z2ui5_cl_ajson_mapping=>create_rename( lt_map
+      act = z3ui5_cl_ajson=>create_from(
+        ii_source_json = z3ui5_cl_ajson=>parse( '{"a":1,"b":{"c":2},"d":{"e":3}}' )
+        ii_mapper      = z3ui5_cl_ajson_mapping=>create_rename( lt_map
         ) )->stringify( )
       exp = '{"b":{"y":2},"x":1,"z":{"e":3}}' ).
 
@@ -247,11 +247,11 @@ class ltcl_test_mappers implementation.
     <i>-to   = 'x'.
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>create_from(
-        ii_source_json = z2ui5_cl_ajson=>parse( '{"a":1,"b":{"a":2},"c":{"a":3}}' )
-        ii_mapper      = z2ui5_cl_ajson_mapping=>create_rename(
+      act = z3ui5_cl_ajson=>create_from(
+        ii_source_json = z3ui5_cl_ajson=>parse( '{"a":1,"b":{"a":2},"c":{"a":3}}' )
+        ii_mapper      = z3ui5_cl_ajson_mapping=>create_rename(
           it_rename_map = lt_map
-          iv_rename_by  = z2ui5_cl_ajson_mapping=>rename_by-full_path
+          iv_rename_by  = z3ui5_cl_ajson_mapping=>rename_by-full_path
         ) )->stringify( )
       exp = '{"a":1,"b":{"x":2},"c":{"a":3}}' ).
 
@@ -267,11 +267,11 @@ class ltcl_test_mappers implementation.
     <i>-to   = 'x'.
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>create_from(
-        ii_source_json = z2ui5_cl_ajson=>parse( '{"andthisnot":1,"b":{"thisone":2},"c":{"a":3}}' )
-        ii_mapper      = z2ui5_cl_ajson_mapping=>create_rename(
+      act = z3ui5_cl_ajson=>create_from(
+        ii_source_json = z3ui5_cl_ajson=>parse( '{"andthisnot":1,"b":{"thisone":2},"c":{"a":3}}' )
+        ii_mapper      = z3ui5_cl_ajson_mapping=>create_rename(
           it_rename_map = lt_map
-          iv_rename_by  = z2ui5_cl_ajson_mapping=>rename_by-pattern
+          iv_rename_by  = z3ui5_cl_ajson_mapping=>rename_by-pattern
         ) )->stringify( )
       exp = '{"andthisnot":1,"b":{"x":2},"c":{"a":3}}' ).
 
@@ -287,13 +287,13 @@ class ltcl_test_mappers implementation.
     <i>-to   = 'x'.
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>create_from(
-        ii_source_json = z2ui5_cl_ajson=>parse( '{"a":1,"b":{"a":2},"c":{"a":3}}' )
-        ii_mapper      = z2ui5_cl_ajson_mapping=>create_compound_mapper(
-          ii_mapper1 = z2ui5_cl_ajson_mapping=>create_rename(
+      act = z3ui5_cl_ajson=>create_from(
+        ii_source_json = z3ui5_cl_ajson=>parse( '{"a":1,"b":{"a":2},"c":{"a":3}}' )
+        ii_mapper      = z3ui5_cl_ajson_mapping=>create_compound_mapper(
+          ii_mapper1 = z3ui5_cl_ajson_mapping=>create_rename(
             it_rename_map = lt_map
-            iv_rename_by  = z2ui5_cl_ajson_mapping=>rename_by-full_path )
-          ii_mapper2 = z2ui5_cl_ajson_mapping=>create_upper_case( ) )
+            iv_rename_by  = z3ui5_cl_ajson_mapping=>rename_by-full_path )
+          ii_mapper2 = z3ui5_cl_ajson_mapping=>create_upper_case( ) )
         )->stringify( )
       exp = '{"A":1,"B":{"X":2},"C":{"A":3}}' ).
 
@@ -302,9 +302,9 @@ class ltcl_test_mappers implementation.
   method to_snake.
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>create_from(
-        ii_source_json = z2ui5_cl_ajson=>parse( '{"aB":1,"BbC":2,"cD":{"xY":3},"ZZ":4}' )
-        ii_mapper      = z2ui5_cl_ajson_mapping=>create_to_snake_case( )
+      act = z3ui5_cl_ajson=>create_from(
+        ii_source_json = z3ui5_cl_ajson=>parse( '{"aB":1,"BbC":2,"cD":{"xY":3},"ZZ":4}' )
+        ii_mapper      = z3ui5_cl_ajson_mapping=>create_to_snake_case( )
         )->stringify( )
       exp = '{"a_b":1,"bb_c":2,"c_d":{"x_y":3},"zz":4}' ).
 
@@ -313,17 +313,17 @@ class ltcl_test_mappers implementation.
   method to_camel.
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>create_from(
-        ii_source_json = z2ui5_cl_ajson=>parse( '{"a_b":1,"bb_c":2,"c_d":{"x_y":3},"zz":4}' )
-        ii_mapper      = z2ui5_cl_ajson_mapping=>create_to_camel_case( )
+      act = z3ui5_cl_ajson=>create_from(
+        ii_source_json = z3ui5_cl_ajson=>parse( '{"a_b":1,"bb_c":2,"c_d":{"x_y":3},"zz":4}' )
+        ii_mapper      = z3ui5_cl_ajson_mapping=>create_to_camel_case( )
         )->stringify( )
       exp = '{"aB":1,"bbC":2,"cD":{"xY":3},"zz":4}' ).
 
     " Forced underscore
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>create_from(
-        ii_source_json = z2ui5_cl_ajson=>parse( '{"a__b":1}' )
-        ii_mapper      = z2ui5_cl_ajson_mapping=>create_to_camel_case( )
+      act = z3ui5_cl_ajson=>create_from(
+        ii_source_json = z3ui5_cl_ajson=>parse( '{"a__b":1}' )
+        ii_mapper      = z3ui5_cl_ajson_mapping=>create_to_camel_case( )
         )->stringify( )
       exp = '{"a_b":1}' ).
 
@@ -332,9 +332,9 @@ class ltcl_test_mappers implementation.
   method to_camel_1st_upper.
 
     cl_abap_unit_assert=>assert_equals(
-      act = z2ui5_cl_ajson=>create_from(
-        ii_source_json = z2ui5_cl_ajson=>parse( '{"aj_bc":1,"bb_c":2,"c_d":{"xq_yq":3},"zz":4}' )
-        ii_mapper      = z2ui5_cl_ajson_mapping=>create_to_camel_case( iv_first_json_upper = abap_true )
+      act = z3ui5_cl_ajson=>create_from(
+        ii_source_json = z3ui5_cl_ajson=>parse( '{"aj_bc":1,"bb_c":2,"c_d":{"xq_yq":3},"zz":4}' )
+        ii_mapper      = z3ui5_cl_ajson_mapping=>create_to_camel_case( iv_first_json_upper = abap_true )
         )->stringify( )
       exp = '{"AjBc":1,"BbC":2,"CD":{"XqYq":3},"Zz":4}' ).
 

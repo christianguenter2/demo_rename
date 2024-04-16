@@ -93,7 +93,7 @@ CLASS z3ui5_cl_core_dissolve_srv IMPLEMENTATION.
       WHEN OTHERS.
 
         ls_attri2-name  = ir_attri->name && `->*`.
-        DATA(lo_model) = NEW z2ui5_cl_core_attri_srv(
+        DATA(lo_model) = NEW z3ui5_cl_core_attri_srv(
             attri = mt_attri
             app   = mo_app ).
         ls_attri2-r_ref = lo_model->attri_get_val_ref( ls_attri2-name ).
@@ -133,7 +133,7 @@ CLASS z3ui5_cl_core_dissolve_srv IMPLEMENTATION.
 
     IF ir_attri->o_typedescr->kind = cl_abap_typedescr=>kind_ref.
       DATA(lv_name) = ir_attri->name && `->`.
-      DATA(lr_ref) = z2ui5_cl_util=>unassign_data( ir_attri->r_ref ).
+      DATA(lr_ref) = z3ui5_cl_util=>unassign_data( ir_attri->r_ref ).
     ELSE.
       lv_name = ir_attri->name && `-`.
       lr_ref = ir_attri->r_ref.

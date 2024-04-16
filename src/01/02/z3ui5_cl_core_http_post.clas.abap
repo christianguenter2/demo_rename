@@ -117,7 +117,7 @@ CLASS z3ui5_cl_core_http_post IMPLEMENTATION.
     TRY.
 
         DATA(li_client) = NEW z3ui5_cl_core_client( mo_action ).
-        DATA(li_app)    = CAST z2ui5_if_app( mo_action->mo_app->mo_app ).
+        DATA(li_app)    = CAST z3ui5_if_app( mo_action->mo_app->mo_app ).
 
         ROLLBACK WORK.
         li_app->main( li_client ).

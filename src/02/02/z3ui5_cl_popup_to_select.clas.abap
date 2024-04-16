@@ -127,7 +127,7 @@ CLASS z3ui5_cl_popup_to_select IMPLEMENTATION.
     LOOP AT lt_comp INTO ls_comp.
       DATA(text) = COND #(
                      LET data_element_name = substring_after( val = CAST cl_abap_elemdescr( ls_comp-type )->absolute_name sub = '\TYPE=' )
-                         medium_label = z2ui5_cl_util=>rtti_get_data_element_texts( data_element_name )-medium IN
+                         medium_label = z3ui5_cl_util=>rtti_get_data_element_texts( data_element_name )-medium IN
                      WHEN medium_label IS NOT INITIAL
                      THEN medium_label
                      ELSE ls_comp-name ).

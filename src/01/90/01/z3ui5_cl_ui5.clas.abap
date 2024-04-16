@@ -180,8 +180,8 @@ CLASS z3ui5_cl_ui5 IMPLEMENTATION.
       CATCH cx_root.
     ENDTRY.
 
-    DATA(lo_node) = NEW z2ui5_cl_ui5__tree( ).
-    DATA(result2) = NEW z2ui5_cl_ui5( lo_node ).
+    DATA(lo_node) = NEW z3ui5_cl_ui5__tree( ).
+    DATA(result2) = NEW z3ui5_cl_ui5( lo_node ).
     result2->_node->mv_name = n.
     result2->_node->mv_ns   = ns.
     result2->_node->mt_prop = t_p.
@@ -231,7 +231,7 @@ CLASS z3ui5_cl_ui5 IMPLEMENTATION.
 
   METHOD _go_up.
     IF _node = _node->mo_root.
-      RAISE EXCEPTION TYPE z2ui5_cx_util_error
+      RAISE EXCEPTION TYPE z3ui5_cx_util_error
         EXPORTING
           val = `XML_VIEW_PARSER_ERROR - go_up on root element not possible`.
     ENDIF.
@@ -255,7 +255,7 @@ CLASS z3ui5_cl_ui5 IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD _stringify.
-    DATA(lo_node) = NEW z2ui5_cl_ui5( _node->mo_root ).
+    DATA(lo_node) = NEW z3ui5_cl_ui5( _node->mo_root ).
     result = _2xml( lo_node ).
   ENDMETHOD.
 

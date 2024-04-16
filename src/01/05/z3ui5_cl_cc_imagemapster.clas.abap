@@ -3300,9 +3300,9 @@ CLASS z3ui5_cl_cc_imagemapster IMPLEMENTATION.
 *                        ).
 
       TRY.
-          DATA(li_ajson) = CAST z2ui5_if_ajson(  z3ui5_cl_ajson=>create_empty( ) ).
+          DATA(li_ajson) = CAST z3ui5_if_ajson(  z3ui5_cl_ajson=>create_empty( ) ).
           li_ajson->set( iv_path = `/` iv_val = is_config ).
-          li_ajson = li_ajson->filter( NEW z2ui5_cl_cc_imagemapster( ) ).
+          li_ajson = li_ajson->filter( NEW z3ui5_cl_cc_imagemapster( ) ).
 *          li_ajson = li_ajson->filter( z2ui5_cl_ajson_filter_lib=>create_empty_filter( ) ).
           li_ajson = li_ajson->map( z3ui5_cl_ajson_mapping=>create_to_camel_case( ) ).
 *          li_ajson = li_ajson->map( z2ui5_cl_ajson_mapping=>create_lower_case( ) ).

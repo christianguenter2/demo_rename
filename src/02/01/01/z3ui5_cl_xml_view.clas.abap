@@ -9184,7 +9184,7 @@ METHOD SLIDER.
     result = |{ result }>|.
 
     LOOP AT mt_child INTO DATA(lr_child).
-      result = result && CAST z2ui5_cl_xml_view( lr_child )->xml_get( ).
+      result = result && CAST z3ui5_cl_xml_view( lr_child )->xml_get( ).
     ENDLOOP.
 
     DATA(lv_ns) = COND #( WHEN mv_ns <> || THEN |{ mv_ns }:| ).
@@ -9209,7 +9209,7 @@ METHOD SLIDER.
       CATCH cx_root.
     ENDTRY.
 
-    DATA(result2) = NEW z2ui5_cl_xml_view( ).
+    DATA(result2) = NEW z3ui5_cl_xml_view( ).
     result2->mv_name   = name.
     result2->mv_ns     = ns.
     result2->mt_prop  = t_prop.

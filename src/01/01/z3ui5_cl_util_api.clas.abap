@@ -698,7 +698,7 @@ CLASS z3ui5_cl_util_api IMPLEMENTATION.
   METHOD json_stringify.
     TRY.
 
-        DATA(li_ajson) = CAST z2ui5_if_ajson( z3ui5_cl_ajson=>create_empty( ) ).
+        DATA(li_ajson) = CAST z3ui5_if_ajson( z3ui5_cl_ajson=>create_empty( ) ).
         result = li_ajson->set( iv_path = `/` iv_val = any )->stringify( ).
 
       CATCH z3ui5_cx_ajson_error INTO DATA(x).
