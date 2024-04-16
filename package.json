@@ -9,7 +9,7 @@
   "license": "MIT",
   "homepage": "https://github.com/christianguenter2/demo_rename#readme",
   "dependencies": {
-    "@abaplint/cli": "^2.106.6"
+    "@abaplint/cli": "^2.106.7"
   },
   "scripts" : {
     "clone_abap2ui5": "git clone https://github.com/abap2UI5/abap2UI5.git input/abap2UI5",

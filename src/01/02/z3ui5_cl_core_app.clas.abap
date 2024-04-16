@@ -147,7 +147,7 @@ CLASS z3ui5_cl_core_app IMPLEMENTATION.
   METHOD db_save.
 
     IF mo_app IS BOUND.
-      CAST z2ui5_if_app( mo_app )->id_draft = ms_draft-id.
+      CAST z3ui5_if_app( mo_app )->id_draft = ms_draft-id.
     ENDIF.
 
     DATA(lo_db) = NEW z3ui5_cl_core_draft_srv( ).
