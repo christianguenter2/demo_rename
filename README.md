@@ -17,7 +17,7 @@ After renaming, you can also install abap2UI5 multiple times in the same system.
 5. (Optional) setup a github action to automate this process
 
 ### Credits
-Thank you to [larshp](https://github.com/larshp) and the tool abaplint processing the renaming and [christianguenter2](https://github.com/christianguenter2) adjusting abap2UI5 and setting this up.
+Thank you to [larshp](https://github.com/larshp) and the tool abaplint processing the renaming and [christianguenter2](https://github.com/christianguenter2) for adjusting abap2UI5 and setting this up.
 
 ### TODO
 * https://github.com/abap2UI5/abap2UI5/issues/1087
