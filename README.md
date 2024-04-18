@@ -21,3 +21,6 @@ Thank you to [larshp](https://github.com/larshp) and the tool abaplint processin
 
 ### TODO
 * https://github.com/abap2UI5/abap2UI5/issues/1087
+
+### More Information
+* Automagic standalone renaming of ABAP objects [(SCN - 20.02.2021)](https://community.sap.com/t5/application-development-blog-posts/automagic-standalone-renaming-of-abap-objects/ba-p/13499851)
